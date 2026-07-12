@@ -1,10 +1,6 @@
 # Fixed messages
 
-Interface text, not prose: these messages are delivered verbatim, never
-paraphrased. Only the English templates ship; at use time they are translated
-faithfully into the conversation's language — minding that language's own
-sentence order and idiom, because a fixed message badly translated is worse
-than none. `{placeholders}` are resolved at delivery time.
+Interface text, not prose: these messages are delivered verbatim, never paraphrased. Only the English templates ship; at use time they are translated faithfully into the conversation's language — minding that language's own sentence order and idiom, because a fixed message badly translated is worse than none. `{placeholders}` are resolved at delivery time.
 
 ## Plan-mode notice
 
