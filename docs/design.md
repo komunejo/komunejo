@@ -32,8 +32,9 @@ Creation asks only what the kernel’s schemas require and cannot derive — the
 
 1. Skeleton: the directory, `git init`, `.gitignore`.
 2. Registry installation: `schemas/` (the four kernel types), `entity-manager.yaml` with `policy.on_unresolvable: block`, the Profile record, and whatever initial Skill/Section/Composition records the installing plugin seeds.
-3. `README.md` and `CLAUDE.md` for the space.
-4. **`validate` green is the completion criterion** (DEC-003). Not a bespoke verification gate: the engine’s exit code.
+3. The space’s own validator and its firing (DEC-019): `entity_lint.py` copied into the space (`.claude/entity_lint.py`) and the engine’s PostToolUse validation hook installed in `.claude/settings.json` — by default, never as an option the owner must understand to accept.
+4. `README.md` and `CLAUDE.md` for the space.
+5. **`validate` green is the completion criterion** (DEC-003). Not a bespoke verification gate: the engine’s exit code.
 
 Immediately after creation, a fixed message tells the owner: the space already works; certain data will make it more useful — and can be provided now or at any later moment. Nothing beyond the required minimum is interviewed at creation. There is no separate “reconfiguration” flow: changing the space *is* editing records and regenerating their derived views.
 
@@ -64,7 +65,7 @@ Regeneration is the skill manager’s (DEC-017), fired by registration changes; 
 
 - After any change to `schemas/` or `entities/` (the engine’s golden rule).
 - As the completion criterion of creation and of every registration/edition operation.
-- Optionally automated via the engine’s documented hooks (`references/hooks.md`) — offered, not imposed, at creation.
+- Automatically, via the engine’s PostToolUse hook, installed in every space at creation (DEC-019); each space carries its own copy of the validator, so the hook holds on any machine.
 
 ## What the kernel deliberately does not do
 

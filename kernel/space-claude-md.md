@@ -22,9 +22,10 @@ declare them.
 
 - Records are created, edited, and validated through the entity-management
   skill — never by improvising frontmatter from memory.
-- After any change to `schemas/` or `entities/`, run the validator; its exit
-  code is the claim of integrity. Never report the registry consistent without
-  a green run.
+- The validator lives at `.claude/entity_lint.py` and fires automatically
+  after every file edit (the hook in `.claude/settings.json`). Its exit code
+  is the claim of integrity: never report the registry consistent without a
+  green run, and never work around the hook.
 - Schema changes are recorded in `schemas/CHANGELOG.md`, never applied
   silently. The contract policy in `entity-manager.yaml` is `block`: when a
   record cannot satisfy the contract, surface the red to the owner — do not

@@ -52,19 +52,24 @@ The bundled definition drives it; the outline (details in the definition):
    (`${CLAUDE_PLUGIN_ROOT}/skills/entity-management/scripts/entity_lint.py`),
    `status: active`, body left for the owner's agreements. The kernel seeds
    no other records.
-4. The space's `CLAUDE.md`: `${CLAUDE_PLUGIN_ROOT}/kernel/space-claude-md.md`
+4. The space's own validator (DEC-019, by default — never an option the
+   owner must understand to accept): copy
+   `${CLAUDE_PLUGIN_ROOT}/skills/entity-management/scripts/entity_lint.py`
+   to `.claude/entity_lint.py`, and install the validation hook from
+   `${CLAUDE_PLUGIN_ROOT}/kernel/space-settings.json` as the space's
+   `.claude/settings.json`.
+5. The space's `CLAUDE.md`: `${CLAUDE_PLUGIN_ROOT}/kernel/space-claude-md.md`
    written in the space's language with placeholders resolved. The space's
    `README.md`: regenerated from the registry (the skill-manager's
    operation), plus the entity index (`entities/entities.md` unless the owner
    prefers elsewhere).
-5. **`validate` green is the completion criterion.** Not a bespoke gate: the
+6. **`validate` green is the completion criterion.** Not a bespoke gate: the
    engine's exit code. On red, fix before saying the space exists.
-6. Deliver the post-creation notice verbatim, `{useful-data}` derived from
+7. Deliver the post-creation notice verbatim, `{useful-data}` derived from
    what the seeded schemas can use, named in plain language — never as field
    names.
-7. Offer — never impose — the engine's validation hooks
-   (`${CLAUDE_PLUGIN_ROOT}/skills/entity-management/references/hooks.md`) and
-   an initial commit. Neither happens without an explicit yes.
+8. Offer — never impose — an initial commit. It does not happen without an
+   explicit yes.
 
 Nothing beyond the required minimum is interviewed at creation. There is no
 separate reconfiguration flow: changing the space afterward is editing

@@ -38,15 +38,19 @@ Nothing beyond this is interviewed at creation.
    `kernel/schemas-changelog.md` with `{date}` resolved to today; create the
    profile record through the engine with the intake values, `status:
    active`, body empty for the owner's future agreements.
-4. Write the space's `CLAUDE.md` from `kernel/space-claude-md.md`, in the
+4. The space's validator, by default — this is not an intake question and is
+   never offered as an option: copy the engine's `entity_lint.py` to
+   `.claude/entity_lint.py`; install `kernel/space-settings.json` as the
+   space's `.claude/settings.json`.
+5. Write the space's `CLAUDE.md` from `kernel/space-claude-md.md`, in the
    space's language, placeholders resolved.
-5. Regenerate the derived views: the entity index (`entities/entities.md`
+6. Regenerate the derived views: the entity index (`entities/entities.md`
    unless the owner prefers elsewhere) and the space's `README.md` (the
    skill-manager's regeneration).
-6. Run `validate`. Green is the completion criterion; on red, fix before
+7. Run `validate`. Green is the completion criterion; on red, fix before
    claiming the space exists.
-7. Deliver the post-creation notice. Useful data to derive `{useful-data}`
+8. Deliver the post-creation notice. Useful data to derive `{useful-data}`
    from, at this stage: whose perspective the space materializes; the
    collaboration's agreements and conventions (the profile's body);
    capabilities worth registering (skills the space should have).
-8. Offer, never impose: the engine's validation hooks, and an initial commit.
+9. Offer, never impose: an initial commit.
