@@ -1,0 +1,56 @@
+entity: skill
+description: >
+  A registered capability (DEC-009): the record is the invocation interface.
+  Orchestrators consult these records — invocation is a registry lookup, never
+  improvisation over skill descriptions. Registration verifies the wrapped
+  capability exists on disk; that correspondence stays outside the hard
+  contract and is auditable on demand (the capability audit).
+id:
+  prefix: SKL
+  width: 3
+dir: skill
+strict: true
+fields:
+  title:
+    type: string
+    required: true
+    description: the capability's name as this space knows it
+  wraps:
+    type: string
+    required: true
+    description: the name of the installed Claude Code skill this record wraps
+  installation:
+    type: enum
+    values: [space, user]
+    required: true
+    description: >
+      where the wrapped skill's files live (DEC-014). space: copied into the
+      space's own .claude/skills/, self-contained and portable (the default).
+      user: referenced at the user level without duplication — accepted on
+      request, with the consequence recorded in the body: the space is no
+      longer self-sufficient on another machine until that skill is installed
+      there. No third mode.
+  source:
+    type: string
+    description: where the files came from — a repository URL or a local path
+  status:
+    type: enum
+    values: [active, retired]
+    required: true
+  generates:
+    type: list
+    items: {type: ref, entity: composition}
+    description: the document types this skill can generate in this space
+  input:
+    type: text
+    description: what the skill needs to run — a file, a record, a prior report
+  output:
+    type: text
+    description: what document it produces
+  protected_sections:
+    type: list
+    items: {type: ref, entity: section}
+    description: >
+      sections contributed by this skill that must not be retired from
+      compositions — a constraint each space manages as data, not a rule
+      hardcoded in kernel operations

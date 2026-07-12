@@ -1,0 +1,33 @@
+entity: profile
+description: >
+  The collaboration's configuration (DEC-012): its name, working language,
+  focus, whose perspective the space materializes, and status. The prose body
+  carries what the collaboration writes about itself — agreements, conventions,
+  anything the schema should not capture. One record per space: this is a soft
+  rule, surfaced by review, not expressible as a schema constraint.
+id:
+  prefix: PRF
+  width: 3
+dir: profile
+strict: true
+fields:
+  name:
+    type: string
+    required: true
+    description: the collaboration's name, in the owner's words
+  language:
+    type: string
+    required: true
+    description: the space's working language; everything the space says to its owner is said in it
+  focus:
+    type: text
+    required: true
+    description: what this space is about, in the owner's words
+  perspective:
+    type: string
+    description: whose perspective the space materializes
+  status:
+    type: enum
+    values: [active, paused, closed]
+    required: true
+    description: set to active at creation; never asked

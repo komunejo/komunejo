@@ -1,6 +1,10 @@
 # Fixed messages
 
-Interface text, not prose: these messages are delivered verbatim, never paraphrased. Only the English templates ship; at use time they are translated faithfully into the conversation’s language — minding that language’s own sentence order and idiom, because a fixed message badly translated is worse than none. `{placeholders}` are resolved at delivery time. Their implementation home is the interviewer skill (DEC-013): `skills/interviewer/references/fixed-messages.md` is the copy the skill delivers from; this file documents them, and the two are kept in step deliberately.
+Interface text, not prose: these messages are delivered verbatim, never
+paraphrased. Only the English templates ship; at use time they are translated
+faithfully into the conversation's language — minding that language's own
+sentence order and idiom, because a fixed message badly translated is worse
+than none. `{placeholders}` are resolved at delivery time.
 
 ## Plan-mode notice
 
@@ -18,7 +22,7 @@ The plan text passed to the exit mechanism; no design vocabulary, no skill or ag
 
 ## Post-creation notice
 
-Delivered immediately after creation completes on validator green (DEC-003):
+Delivered immediately after creation completes on validator green:
 
 > Your space is created and working — every check passed. A few things would make it more useful whenever you have them: {useful-data}. You can give me any of them now or at any later moment; nothing is blocked in the meantime.
 

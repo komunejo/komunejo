@@ -1,0 +1,35 @@
+entity: section
+description: >
+  A unit of composable report content. The body IS the section content,
+  adapted to the space's language at registration time. The adapted body
+  belongs to the space: upstream improvements to a skill's material never
+  rewrite it silently; refreshing a section from its skill is a deliberate
+  operation with its own history entry (git and, when schemas move,
+  schemas/CHANGELOG.md).
+id:
+  prefix: SEC
+  width: 3
+dir: section
+strict: true
+fields:
+  title:
+    type: string
+    required: true
+  provenance:
+    type: enum
+    values: [skill, owner]
+    required: true
+    description: >
+      typed, so honest labeling is structural — skill: backed by a registered
+      skill's shipped material; owner: drafted from the owner's own description
+  skill:
+    type: ref
+    entity: skill
+    description: >
+      the registered skill whose shipped material backs this section. Required
+      when provenance is skill, absent when provenance is owner — a pairing
+      surfaced by review, not expressible as a schema constraint.
+  document_type:
+    type: ref
+    entity: composition
+    description: the document type this section belongs to

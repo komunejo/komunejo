@@ -1,0 +1,29 @@
+entity: composition
+description: >
+  A document type assembled from sections (DEC-010): the content is the
+  ordered list of refs to section records. Order lives here, in one
+  engine-validated list — never as fields scattered across sections.
+  Producing a document of this type means reading this record, loading the
+  referenced sections' skills, and writing the document.
+id:
+  prefix: CMP
+  width: 3
+dir: composition
+strict: true
+fields:
+  title:
+    type: string
+    required: true
+    description: the document type's name
+  visibility:
+    type: enum
+    values: [public, private]
+    required: true
+    description: >
+      declared at the type level, never per instance (DEC-015). A document
+      that needs different visibility is a different document type.
+  sections:
+    type: list
+    items: {type: ref, entity: section}
+    required: true
+    description: the ordered list of sections; may start empty

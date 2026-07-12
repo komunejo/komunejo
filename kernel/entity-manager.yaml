@@ -1,0 +1,9 @@
+# Contract configuration of this collaboration space.
+# policy.on_unresolvable: block is this space's constitution (komunejo DEC-004):
+# when a record cannot satisfy the contract, the red is surfaced to a human —
+# the contract is never loosened silently. A technical owner may change the
+# policy here, deliberately.
+schemas_dir: schemas
+entities_dir: entities
+policy:
+  on_unresolvable: block

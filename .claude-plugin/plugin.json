@@ -1,0 +1,11 @@
+{
+  "name": "komunejo",
+  "displayName": "Komunejo",
+  "description": "Creates and maintains collaboration spaces: humans and agents work in natural language while the structured facts underneath live as typed records validated by a deterministic engine.",
+  "version": "0.1.0",
+  "author": {
+    "name": "V. Gracia"
+  },
+  "license": "MPL-2.0",
+  "keywords": ["collaboration", "entities", "records", "registry", "validation"]
+}
