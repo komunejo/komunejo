@@ -1,0 +1,26 @@
+entity: requirement
+description: >-
+  A requirement the komunejo plugin must satisfy. Requirements are the 'why' behind decisions; decisions point back at them via 'addresses'.
+id:
+  prefix: REQ
+  width: 3
+strict: true
+fields:
+  title:
+    type: string
+    required: true
+  status:
+    type: enum
+    values: [open, satisfied, dropped]
+    required: true
+  priority:
+    type: enum
+    values: [must, should, could]
+    required: true
+  date:
+    type: date
+    required: true
+  tags:
+    type: list
+    items:
+      type: string

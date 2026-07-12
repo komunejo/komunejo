@@ -1,0 +1,7 @@
+# komunejo project configuration
+schemas_dir: schemas
+entities_dir: entities
+policy:
+  # The contract is untouchable; unresolvable records are surfaced as an
+  # honest red requiring human intervention.
+  on_unresolvable: block

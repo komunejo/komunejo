@@ -1,0 +1,32 @@
+entity: decision
+description: >-
+  A design decision for the komunejo plugin. Records what was decided, why, and which requirements it addresses. Superseding a decision means creating a new one that points back via 'supersedes'.
+id:
+  prefix: DEC
+  width: 3
+strict: true
+fields:
+  title:
+    type: string
+    required: true
+  status:
+    type: enum
+    values: [proposed, accepted, superseded, rejected]
+    required: true
+  date:
+    type: date
+    required: true
+  supersedes:
+    type: ref
+    entity: decision
+    description: Earlier decision this one replaces.
+  addresses:
+    type: list
+    items:
+      type: ref
+      entity: requirement
+    description: Requirements this decision helps satisfy.
+  tags:
+    type: list
+    items:
+      type: string
