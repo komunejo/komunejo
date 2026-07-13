@@ -15,3 +15,4 @@ All files in this repository are written in English, examples included. Spaces g
 - Never commit without the user’s explicit confirmation.
 - The entity index lives at `entities/entities.md` (folder-note form, this repository’s preference) and is always regenerated with `entity_lint.py index --write entities/entities.md`, never hand-edited. No index at the repo root.
 - The bundled `entity-management` skill is vendored (MPL-2.0), pinned to a tagged upstream release. Never fork or edit the engine here — improvements go upstream, and updating the pin is a deliberate, recorded act.
+- A change to shipped behavior is a release: bump `version` in `.claude-plugin/plugin.json` (and the marketplace entry) in the same commit. The marketplace serves `main` unpinned and Claude Code gates update delivery on that field — a stale version is a silent contract change (REQ-006 applied to distribution).
