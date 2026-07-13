@@ -22,4 +22,4 @@ Delivered immediately after creation completes on validator green (DEC-003):
 
 > Your space is created and working — every check passed. A few things would make it more useful whenever you have them: {useful-data}. You can give me any of them now or at any later moment; nothing is blocked in the meantime.
 
-`{useful-data}` is derived at delivery time from what the space's seeded schemas and registered skills can use — named in plain language, never as field names.
+`{useful-data}` is derived at delivery time from what the space’s seeded schemas and registered skills can use — named in plain language, never as field names.
