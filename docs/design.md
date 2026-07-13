@@ -32,7 +32,7 @@ Creation asks only what the kernel’s schemas require and cannot derive — the
 
 1. Skeleton: the directory, `git init`, `.gitignore`.
 2. Registry installation: `schemas/` (the four kernel types), `entity-manager.yaml` with `policy.on_unresolvable: block`, the Profile record, and whatever initial Skill/Section/Composition records the installing plugin seeds.
-3. The space’s own validator and its firing (DEC-019): `entity_lint.py` copied into the space (`.claude/entity_lint.py`) and the engine’s PostToolUse validation hook installed in `.claude/settings.json` — by default, never as an option the owner must understand to accept.
+3. The space’s own machinery and its firing (DEC-020): the kernel skills that operate the space (`entity-management`, `skill-manager`) copied into `.claude/skills/`, and the engine’s PostToolUse validation hook installed in `.claude/settings.json`, firing the validator bundled inside the copied engine — by default, never as an option the owner must understand to accept.
 4. `README.md` and `CLAUDE.md` for the space.
 5. **`validate` green is the completion criterion** (DEC-003). Not a bespoke verification gate: the engine’s exit code.
 
@@ -45,6 +45,8 @@ Generation runs in the main conversation through the kernel’s skills — there
 ## Kernel skills
 
 Three, no more (DEC-013): the **engine** — the vendored `entity-management` skill, relied on for every record operation, always an exact copy of a tagged upstream release (DEC-018); the **skill manager** — the space’s capabilities and their derived views: registration end to end — reach the source (a repository, local files), hand the structured facts to the engine, install the capability per its recorded installation mode (DEC-014) — and README regeneration, fired by registration changes (DEC-017); and the **interviewer** — general-purpose conversational intake whose interview definitions are per-space data, with space creation as its first configuration.
+
+The engine and the skill manager operate spaces, so creation copies both into each space’s `.claude/skills/` (DEC-020) — the kernel applies to itself the `space` installation mode DEC-014 made the default. The interviewer serves creation, not operation, and stays in the plugin: the plugin is needed to create a space, never to work in one.
 
 ## Particularization
 
@@ -65,7 +67,7 @@ Regeneration is the skill manager’s (DEC-017), fired by registration changes; 
 
 - After any change to `schemas/` or `entities/` (the engine’s golden rule).
 - As the completion criterion of creation and of every registration/edition operation.
-- Automatically, via the engine’s PostToolUse hook, installed in every space at creation (DEC-019); each space carries its own copy of the validator, so the hook holds on any machine.
+- Automatically, via the engine’s PostToolUse hook, installed in every space at creation (DEC-020); each space carries its operating skills — validator included — under `.claude/skills/`, tracked by its `.gitignore` (DEC-021), so the hook holds on any machine, plugin installed or not.
 
 ## What the kernel deliberately does not do
 

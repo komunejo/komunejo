@@ -2,7 +2,7 @@
 id: DEC-019
 entity: decision
 title: Validation hooks are installed by default; each space carries its own validator copy
-status: accepted
+status: superseded
 date: 2026-07-12
 addresses: [REQ-002, REQ-003]
 ---

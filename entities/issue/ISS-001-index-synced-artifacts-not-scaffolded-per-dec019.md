@@ -2,7 +2,7 @@
 id: ISS-001
 entity: issue
 title: "index__synced-artifacts was not scaffolded per DEC-019"
-status: open
+status: resolved
 date: 2026-07-13
 tags: [creation, conformance, dec019]
 ---
@@ -23,6 +23,6 @@ The absent `.gitignore` is a **latent** defect: it has not caused a failure beca
 
 ## Scope and cause
 
-Single root cause: the space was not scaffolded through the DEC-019 creation flow — it predates that flow, or the flow did not apply it. The fix for this instance is to apply the DEC-019 scaffolding to it.
+Single root cause: the space was not scaffolded through the creation flow. The defect is the plugin's, and the plugin no longer has it: creation now installs the full scaffolding — operating skills in `.claude/skills/`, hook in `.claude/settings.json`, conscious `.gitignore`, tracked `CLAUDE.md` ([[DEC-020]], [[DEC-021]]) — verified end to end on a freshly created space (2026-07-13). Repairing the space that surfaced this issue is that repository's own business, not the plugin's.
 
 Even a conformant creation would not fully suffice, because the validator and hook land in `.claude/`, which the standard `.gitignore` excludes, so they would not travel to a second machine. That systemic side is tracked separately in [[PROP-001]].

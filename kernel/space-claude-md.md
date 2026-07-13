@@ -12,7 +12,7 @@ This space speaks {language}. Every document, record body, and message to the ow
 ## Working with records
 
 - Records are created, edited, and validated through the entity-management skill — never by improvising frontmatter from memory.
-- The validator lives at `.claude/entity_lint.py` and fires automatically after every file edit (the hook in `.claude/settings.json`). Its exit code is the claim of integrity: never report the registry consistent without a green run, and never work around the hook.
+- The validator ships inside the entity-management skill (`.claude/skills/entity-management/scripts/entity_lint.py`) and fires automatically after every file edit (the hook in `.claude/settings.json`). Its exit code is the claim of integrity: never report the registry consistent without a green run, and never work around the hook.
 - Schema changes are recorded in `schemas/CHANGELOG.md`, never applied silently. The contract policy in `entity-manager.yaml` is `block`: when a record cannot satisfy the contract, surface the red to the owner — do not loosen the contract.
 
 ## Derived views
@@ -20,5 +20,7 @@ This space speaks {language}. Every document, record body, and message to the ow
 The entity index and this space's `README.md` are regenerated from the records, never hand-edited. After any significant structural change — a skill registered or retired, a document type added, the profile edited — check the README against the registry and regenerate it if stale.
 
 ## Skills
+
+The skills this space operates with live in `.claude/skills/` and travel with the repository: a clone of this space is a working space, on any machine, with no prior installation beyond git, Claude Code, and Python.
 
 Capabilities available here are registered as skill records in `entities/skill/`. To run one, consult its record: what it wraps, what input it needs, what it produces. Invocation resolves through the registry.

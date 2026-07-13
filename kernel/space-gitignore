@@ -1,3 +1,49 @@
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
 Thumbs.db
-desktop.ini
+ehthumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Editor/IDE
+*~
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Language caches and build artefacts
+__pycache__/
+*.pyc
+node_modules/
+dist/
+build/
+
+# Secrets — never commit
+*.env
+.env.*
+*.pem
+*.key
+credentials.json
+
+# Claude Code: default-deny — what the space shares, it shares consciously.
+# The exceptions are the space's own machinery: the hook settings and the
+# skills it operates with travel with the repository.
+# Machine-local state (.claude/settings.local.json) stays local by the deny.
+.claude/*
+!.claude/settings.json
+!.claude/skills/
+
+# MCP registrations carry machine-local paths
+.mcp.json
+
+# Obsidian application state
+.obsidian/
