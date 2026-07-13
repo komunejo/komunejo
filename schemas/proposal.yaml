@@ -1,0 +1,28 @@
+entity: proposal
+description: >-
+  A desired improvement to the komunejo plugin, recorded before it is designed or committed to. Proposals are the backlog: motivation, notes, and design sketches accumulate in the prose body. When a proposal is taken up, the resulting design work lands as one or more decisions, and the proposal's status moves to implemented (or rejected).
+id:
+  prefix: PROP
+  width: 3
+strict: true
+fields:
+  title:
+    type: string
+    required: true
+  status:
+    type: enum
+    values: [proposed, accepted, rejected, implemented]
+    required: true
+  date:
+    type: date
+    required: true
+  addresses:
+    type: list
+    items:
+      type: ref
+      entity: requirement
+    description: Requirements this proposal would help satisfy.
+  tags:
+    type: list
+    items:
+      type: string

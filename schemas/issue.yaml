@@ -1,0 +1,22 @@
+entity: issue
+description: >-
+  A defect encountered in practice when using komunejo or a space it generated: what went wrong, where, and its current state. Issues are the field-report backlog; when the fix is taken up it lands as a proposal and/or decision, and the issue moves to resolved.
+id:
+  prefix: ISS
+  width: 3
+strict: true
+fields:
+  title:
+    type: string
+    required: true
+  status:
+    type: enum
+    values: [open, resolved, wontfix]
+    required: true
+  date:
+    type: date
+    required: true
+  tags:
+    type: list
+    items:
+      type: string
